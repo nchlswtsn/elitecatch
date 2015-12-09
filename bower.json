@@ -1,0 +1,26 @@
+{
+  "name": "elitecatch",
+  "authors": [
+    "Charles Watson <charlesnwatson@gmail.com>"
+  ],
+  "description": "Platform to inform fishermen of catch probability",
+  "main": "app.js",
+  "moduleType": [],
+  "keywords": [
+    "fish"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "angular-ui-router": "~0.2.15",
+    "angular": "~1.4.8"
+  }
+}
