@@ -15,6 +15,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 'use strict';
 
+app.service('radarService', function($http) {
+  var autoIP = 'http://api.wunderground.com/api/dec8bf3b3a454036/geolookup/q/autoip.json';
+  this.getIP = function(){return $http.get(autoIP)}
+})
+
+'use strict';
+
 app.controller('InitCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 
 }])
@@ -69,10 +76,3 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', fu
 //     })
 //
 // }]);
-
-'use strict';
-
-app.service('radarService', function($http) {
-  var autoIP = 'http://api.wunderground.com/api/dec8bf3b3a454036/geolookup/q/autoip.json';
-  this.getIP = function(){return $http.get(autoIP)}
-})

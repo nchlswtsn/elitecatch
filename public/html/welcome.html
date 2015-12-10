@@ -61,13 +61,27 @@
           <div class="col-md-6 col-md-offset-3">
             <div id="searchForm">
               <h1>Quick Start</h1>
-              <form ng-submit="searchLocation()">
-
+              <form ng-submit="searchLocation()" class="input-group">
+                <div class="input-group begin">
+                  <span class="input-group-addon" id="basic-addon3">Full name:</span>
+                  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="John Williams...">
+                </div>
+                <div class="input-group begin">
+                  <span class="input-group-addon" id="basic-addon3">Home:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Jacksonhole, WY...">
+                </div>
+                <div class="begin">
+                  <button class="btn btn-default pull-right">Begin</button>
+                </div>
               </form>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="footer">
+      <div>Data provided by:</div>
+      <div><img src="./public/images/wunderground.jpeg" alt="wunderground" href="http://www.wunderground.com"></div>
     </div>
   </div>
 </div>

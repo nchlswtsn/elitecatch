@@ -48,7 +48,15 @@ body {
 
 .letsBegin {
   background-color: #ededed;
-  height: 80vh; }
+  height: 50vh; }
   .letsBegin h1 {
     margin-top: 50px;
+    margin-bottom: 40px;
     text-align: center; }
+  .letsBegin .begin {
+    text-align: center;
+    margin-top: 15px; }
+
+.footer {
+  text-align: center;
+  height: 50px; }
