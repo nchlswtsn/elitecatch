@@ -6,9 +6,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/');
 
   $stateProvider
-    .state('home', {
+    .state('welcome', {
       url: '/',
-      templateUrl: 'template/home.html',
-      controller: 'HomeCtrl'
+      templateUrl: 'template/welcome.html',
+      controller: 'WelcomeCtrl'
     });
 });
