@@ -15,13 +15,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 'use strict';
 
-app.service('radarService', function($http) {
-  var autoIP = 'http://api.wunderground.com/api/dec8bf3b3a454036/geolookup/q/autoip.json';
-  this.getIP = function(){return $http.get(autoIP)}
-})
-
-'use strict';
-
 app.controller('InitCtrl', ['$scope', '$timeout', function($scope, $timeout) {
 
 }])
@@ -43,15 +36,25 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', fu
   $timeout($scope.showFirstPhase, 2000);
   $timeout($scope.showSecondPhase, 3000);
   $timeout($scope.showThirdPhase, 4000);
+
+  var waypoint = new Waypoint({
+    element: document.getElementById('radarImg'),
+    handler: function(direction) {
+      console.log('Radar hit:', direction);
+    },
+    offset: '80%'
+  })
   // End Home Load Animation
 
+
+
   // var geoCityState = data.data.location.state + '/' + data.data.location.city;
-  var url = 'http://api.wunderground.com/api/dec8bf3b3a454036/animatedradar/q/OH/Oxford.gif?newmaps=1&timelabel=1&timelabel.y=10&num=5&delay=50?callback=?';
-  console.log(url);
-  $http.get(url)
-  .then(function(data) {
-    console.log(data);
-  })
+  // var url = 'http://api.wunderground.com/api/dec8bf3b3a454036/animatedradar/q/OH/Oxford.gif?newmaps=1&timelabel=1&timelabel.y=10&num=5&delay=50';
+  // console.log(url);
+  // $http.get(url)
+  // .then(function(data) {
+  //   console.log(data);
+  // })
 
   // radarService.getIP().then(function(data) {
   //   var geoCityState = data.data.location.state + '/' + data.data.location.city;
@@ -76,3 +79,11 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', fu
 //     })
 //
 // }]);
+app.controller('ReturnCtrl', [ctrl])
+
+'use strict';
+
+app.service('radarService', function($http) {
+  var autoIP = 'http://api.wunderground.com/api/dec8bf3b3a454036/geolookup/q/autoip.json';
+  this.getIP = function(){return $http.get(autoIP)}
+})

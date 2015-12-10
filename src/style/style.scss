@@ -51,7 +51,12 @@ body {
 }
 #depthDescription {
   font-size: 2em;
-  margin-top: 45px;
+  p {
+    margin-top: 30px;
+  }
+  #topParagraph {
+    margin-top: 0;
+  }
 }
 .letsBegin {
   background-color: $background-gray;
@@ -69,4 +74,8 @@ body {
 .footer {
   text-align: center;
   height: 50px;
+  img {
+    height: 50px;
+    cursor: pointer;
+  }
 }

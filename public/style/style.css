@@ -43,8 +43,11 @@ body {
     height: 300px; }
 
 #depthDescription {
-  font-size: 2em;
-  margin-top: 45px; }
+  font-size: 2em; }
+  #depthDescription p {
+    margin-top: 30px; }
+  #depthDescription #topParagraph {
+    margin-top: 0; }
 
 .letsBegin {
   background-color: #ededed;
@@ -60,3 +63,6 @@ body {
 .footer {
   text-align: center;
   height: 50px; }
+  .footer img {
+    height: 50px;
+    cursor: pointer; }
