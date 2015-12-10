@@ -1,0 +1,73 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="hero-unit">
+      <div ng-show="firstPhase" class="firstPhase animated fadeInDown">
+        <p id="left">Wherever your favorite spot may be...</p>
+      </div>
+      <div ng-show="secondPhase" class="secondPhase animated fadeInDown">
+        <p id="right">...we've got you covered.</p>
+      </div>
+    </div>
+    <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
+      <div ng-show="thirdPhase" class="row animated fadeInUp">
+        <div class="col-lg-4 col-md-4">
+          <div class="infoCard">Tools developed by fishermen, for fishermen - gain an extra edge in your fishing experience.</div>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <div class="infoCard">Using realtime weather data EliteCatch provides you with the most accurate fishing odds.</div>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <div class="infoCard">Save locations to quickly access your favorite spots and spend more time doing what you love.</div>
+        </div>
+      </div>
+    </div>
+    <div class="radarInfo">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+          <div class="col-md-6">
+            <img src="./public/images/radar.jpg" alt="Radar">
+          </div>
+          <div class="col-md-6">
+            <div id="radarDescription" class="pull-right">
+              Check our live radar maps to see weather movement in your area. <br><br>
+              Radar updates each time you visit the page and covers 500<sup>2</sup> miles. <br><br>
+              The radar example on your left is actually your current location!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="depthInfo">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+          <div class="col-md-6">
+            <div id="depthDescription">
+              <p>Using a combination of local climate</p>
+              <p>data and salletite imagery, EliteCatch</p>
+              <p>gives you a full understanding of which</p>
+              <p>depths will provide the best fishing</p>
+              <p>odds.</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img src="./public/images/thermocline.jpg" alt="Thermocline">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="letsBegin">
+      <div class="col-md-10 col-md-offset-1">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <div id="searchForm">
+              <h1>Quick Start</h1>
+              <form ng-submit="searchLocation()">
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

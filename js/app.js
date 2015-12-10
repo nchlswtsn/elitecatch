@@ -8,7 +8,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('welcome', {
       url: '/',
-      templateUrl: 'template/welcome.html',
+      templateUrl: './public/html/welcome.html',
       controller: 'WelcomeCtrl'
     });
 });
