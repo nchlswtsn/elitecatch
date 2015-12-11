@@ -2,9 +2,10 @@
   <div class="row">
     <div class="hero-unit return">
       <div ng-show="firstPhase" class="firstPhase animated fadeInDown">
-        <p id="returnState">Welcome back {{fullName}}.</p>
+        <p ng-show="firstVisit" id="returnState">Welcome {{fullName}}.</p>
+        <p ng-show="!firstVisit" id="returnState">Welcome back {{fullName}}.</p>
+        <div class="ui-view"></div>
       </div>
     </div>
-    <div class="ui-view"></div>
   </div>
 </div>

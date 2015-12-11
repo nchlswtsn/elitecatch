@@ -20,15 +20,34 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/search',
       templateUrl: './public/html/search.html',
       controller: 'SearchCtrl'
-    });
+    })
+    .state('finder', {
+      parent: 'return',
+      url: '/finder',
+      templateUrl: './public/html/searchPanel.html',
+      controller: 'FinderCtrl'
+    })
+    .state('control', {
+      parent: 'return',
+      url: 'control-panel',
+      templateUrl: './public/html/controlPanel.html',
+      controller: 'ControlCtrl'
+    })
 });
 
 'use strict';
 
-app.controller('InitCtrl', ['$scope', '$timeout', function($scope, $timeout) {
+app.controller('InitCtrl', ['$scope', '$timeout', '$state', function($scope, $timeout, $state) {
 
 }])
-app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', function($scope, $timeout, $http, radarService) {
+app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', '$state', function($scope, $timeout, $http, radarService, $state) {
+  console.log(localStorage);
+  if (localStorage.visited) {
+    $state.go('return');
+  } else {
+    $state.go('welcome');
+  }
+
   // Start Home Load Animation
   $scope.firstPhase = false;
   $scope.secondPhase = false;
@@ -63,6 +82,20 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', fu
     console.log(localStorage);
     $scope.fullName = '';
     $scope.homeLocation = '';
+    localStorage.visited = JSON.stringify(1);
+    localStorage.firstVisit = JSON.stringify(true);
+    $state.go('return');
+  }
+  $scope.saveInfoGuest = function() {
+    localStorage.fullName = 'Guest';
+    localStorage.homeLocation = JSON.stringify($scope.homeLocation)
+    localStorage.memberSince = JSON.stringify(Date.now())
+    console.log(localStorage);
+    $scope.fullName = '';
+    $scope.homeLocation = '';
+    localStorage.visited = JSON.stringify(1);
+    localStorage.firstVisit = JSON.stringify(true);
+    $state.go('return');
   }
 
 
@@ -97,7 +130,16 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', fu
 //     })
 //
 // }]);
-app.controller('ReturnCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
+app.controller('ReturnCtrl', ['$scope', '$http', '$timeout', '$state', function($scope, $http, $timeout, $state) {
+
+  // Check if first visit
+  $scope.firstVisit = JSON.parse(localStorage.firstVisit);
+  if ($scope.firstVisit === true) {
+    localStorage.firstVisit = JSON.stringify(false);
+  } else if ($scope.firstVisit === undefined) {
+    $state.go('welcome');
+  }
+
   // Start Home Load Animation
   $scope.firstPhase = false;
   $scope.thirdPhase = false;
@@ -121,7 +163,7 @@ app.controller('ReturnCtrl', ['$scope', '$http', '$timeout', function($scope, $h
   //   offset: '80%'
   // })
   // End Home Load Animation
-}])
+}]);
 
 app.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
   console.log("Search controller loaded!");
@@ -140,7 +182,7 @@ app.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.day = data.data.forecast.simpleforecast.forecastday[0].date.weekday;
     $scope.temp = data.data.forecast.simpleforecast.forecastday[0].high.fahrenheit;
     $scope.condition = data.data.forecast.simpleforecast.forecastday[0].conditions;
-    $scope.grade = 'B+';
+    $scope.grade = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+'][Math.floor(Math.random() * 10)]
     console.log($scope.day);
   });
 }])

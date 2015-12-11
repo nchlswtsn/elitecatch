@@ -1,14 +1,12 @@
 .hero-unit.return {
   position: relative;
   top: 0;
-  background-image: url('../images/fish02.jpg');
+  background-image: url('./../images/fishing2.jpeg');
   background-size: cover;
-  height: 75vh;
+  height: 110vh;
   margin-bottom: 20px;
   #returnState {
-    position: absolute;
-    left: 20vw;
-    top: 12vh;
+    text-align: center;
     font-size: 5em;
   }
 }
