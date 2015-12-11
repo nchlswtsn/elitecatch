@@ -10,6 +10,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: './public/html/welcome.html',
       controller: 'WelcomeCtrl'
+    })
+    .state('return', {
+      url: '/return',
+      templateUrl: './public/html/return.html',
+      controller: 'ReturnCtrl'
+    })
+    .state('search', {
+      url: '/search',
+      templateUrl: './public/html/search.html',
+      controller: 'SearchCtrl'
     });
 });
 
@@ -37,15 +47,23 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', fu
   $timeout($scope.showSecondPhase, 3000);
   $timeout($scope.showThirdPhase, 4000);
 
-  var waypoint = new Waypoint({
-    element: document.getElementById('radarImg'),
-    handler: function(direction) {
-      console.log('Radar hit:', direction);
-    },
-    offset: '80%'
-  })
+  // var waypoint = new Waypoint({
+  //   element: document.getElementById('radarImg'),
+  //   handler: function(direction) {
+  //     console.log('Radar hit:', direction);
+  //   },
+  //   offset: '80%'
+  // })
   // End Home Load Animation
 
+  $scope.saveInfo = function() {
+    localStorage.fullName = JSON.stringify($scope.fullName)
+    localStorage.homeLocation = JSON.stringify($scope.homeLocation)
+    localStorage.memberSince = JSON.stringify(Date.now())
+    console.log(localStorage);
+    $scope.fullName = '';
+    $scope.homeLocation = '';
+  }
 
 
   // var geoCityState = data.data.location.state + '/' + data.data.location.city;
@@ -79,7 +97,35 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', fu
 //     })
 //
 // }]);
-app.controller('ReturnCtrl', [ctrl])
+app.controller('ReturnCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
+  // Start Home Load Animation
+  $scope.firstPhase = false;
+  $scope.thirdPhase = false;
+
+  $scope.fullName = JSON.parse(localStorage.fullName);
+
+  $scope.showFirstPhase = function() {
+    $scope.firstPhase = true;
+  }
+  $scope.showThirdPhase = function() {
+    $scope.thirdPhase = true;
+  }
+  $timeout($scope.showFirstPhase, 2000);
+  $timeout($scope.showThirdPhase, 3000);
+
+  // var waypoint = new Waypoint({
+  //   element: document.getElementById('radarImg'),
+  //   handler: function(direction) {
+  //     console.log('Radar hit:', direction);
+  //   },
+  //   offset: '80%'
+  // })
+  // End Home Load Animation
+}])
+
+app.controller('search', ['$scope', '$http', function($scope, $http) {
+  console.log("Search controller loaded!");
+}])
 
 'use strict';
 

@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="hero-unit">
+    <div class="hero-unit welcome">
       <div ng-show="firstPhase" class="firstPhase animated fadeInDown">
         <p id="left">Wherever your favorite spot may be...</p>
       </div>
@@ -25,13 +25,13 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="row">
           <div class="col-md-6">
-            <img id="radarImg" class="animated " src="./public/images/radar.jpg" alt="Radar">
+            <img id="radarImg" class="animated " src="./public/images/radar.gif" alt="Radar">
           </div>
           <div class="col-md-6">
             <div id="radarDescription" class="pull-right">
               Check our live radar maps to see weather movement in your area. <br><br>
               Radar updates each time you visit the page and covers 500<sup>2</sup> miles. <br><br>
-              The radar example on your left is actually your current location!
+              The radar example on your left is your current location!
             </div>
           </div>
         </div>
@@ -61,17 +61,17 @@
           <div class="col-md-6 col-md-offset-3">
             <div id="searchForm">
               <h1>Quick Start</h1>
-              <form ng-submit="searchLocation()" class="input-group">
+              <form class="input-group">
                 <div class="input-group begin">
                   <span class="input-group-addon" id="basic-addon3">Full name:</span>
-                  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="John Williams...">
+                  <input ng-model="fullName" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="John Williams...">
                 </div>
                 <div class="input-group begin">
                   <span class="input-group-addon" id="basic-addon3">Home:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Jacksonhole, WY...">
+                  <input ng-model="homeLocation" type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" placeholder="Jacksonhole, WY...">
                 </div>
                 <div class="begin">
-                  <button class="btn btn-default pull-right">Begin</button>
+                  <button ng-click="saveInfo()" class="btn btn-default pull-right">Begin</button>
                 </div>
               </form>
             </div>

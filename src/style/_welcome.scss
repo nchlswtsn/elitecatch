@@ -1,0 +1,76 @@
+.container {
+  margin: 0;
+}
+.hero-unit.welcome {
+  position: relative;
+  background-image: url('../images/fish01.jpg');
+  background-size: cover;
+  height: 75vh;
+  margin-bottom: 20px;
+  #right {
+    position: absolute;
+    right: 30vw;
+    top: 25vh;
+    font-size: 3em;
+  }
+  #left {
+    position: absolute;
+    left: 20vw;
+    top: 12vh;
+    font-size: 3em;
+  }
+}
+.infoCard {
+  font-size: 1.8em;
+}
+.radarInfo {
+  background-color: $background-gray;
+  margin-top: 200px;
+  height: 80vh;
+  img {
+    height: 300px;
+    margin-top: 20vh;
+    margin-left: 50px;
+  }
+}
+#radarDescription {
+  font-size: 2em;
+  margin-top: 18vh;
+}
+.depthInfo {
+  margin-top: 100px;
+  height: 60vh;
+  img {
+    height: 300px;
+  }
+}
+#depthDescription {
+  font-size: 2em;
+  p {
+    margin-top: 30px;
+  }
+  #topParagraph {
+    margin-top: 0;
+  }
+}
+.letsBegin {
+  background-color: $background-gray;
+  height: 50vh;
+  h1 {
+    margin-top: 50px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .begin {
+    text-align: center;
+    margin-top: 15px;
+  }
+}
+.footer {
+  text-align: center;
+  height: 50px;
+  img {
+    height: 50px;
+    cursor: pointer;
+  }
+}

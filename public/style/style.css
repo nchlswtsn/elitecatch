@@ -1,21 +1,18 @@
-body {
-  font-family: Avenir; }
-
 .container {
   margin: 0; }
 
-.hero-unit {
+.hero-unit.welcome {
   position: relative;
   background-image: url("../images/fish01.jpg");
   background-size: cover;
   height: 75vh;
   margin-bottom: 20px; }
-  .hero-unit #right {
+  .hero-unit.welcome #right {
     position: absolute;
     right: 30vw;
     top: 25vh;
     font-size: 3em; }
-  .hero-unit #left {
+  .hero-unit.welcome #left {
     position: absolute;
     left: 20vw;
     top: 12vh;
@@ -30,7 +27,8 @@ body {
   height: 80vh; }
   .radarInfo img {
     height: 300px;
-    margin-top: 20vh; }
+    margin-top: 20vh;
+    margin-left: 50px; }
 
 #radarDescription {
   font-size: 2em;
@@ -66,3 +64,19 @@ body {
   .footer img {
     height: 50px;
     cursor: pointer; }
+
+.hero-unit.return {
+  position: relative;
+  top: 0;
+  background-image: url("../images/fish02.jpg");
+  background-size: cover;
+  height: 75vh;
+  margin-bottom: 20px; }
+  .hero-unit.return #returnState {
+    position: absolute;
+    left: 20vw;
+    top: 12vh;
+    font-size: 5em; }
+
+body {
+  font-family: Avenir; }
