@@ -78,5 +78,11 @@
     top: 12vh;
     font-size: 5em; }
 
+tr th {
+  text-align: center; }
+
+tr td {
+  text-align: center; }
+
 body {
   font-family: Avenir; }

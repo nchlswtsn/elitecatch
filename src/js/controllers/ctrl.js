@@ -98,6 +98,32 @@ app.controller('ReturnCtrl', ['$scope', '$http', '$timeout', function($scope, $h
   // End Home Load Animation
 }])
 
-app.controller('search', ['$scope', '$http', function($scope, $http) {
+app.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
   console.log("Search controller loaded!");
+  // var city = location.split(', ')[0];
+  // var state = location.split(', ')[1];
+  // var geoCityState = city + '/' + state
+  // var url = 'http://api.wunderground.com/api/dec8bf3b3a454036/forecast10day/q/' + geoCityState + '.json';
+  $scope.day;
+  $scope.temp;
+  $scope.condition;
+  $scope.grade;
+  var url = 'http://api.wunderground.com/api/dec8bf3b3a454036/forecast10day/q/OH/Oxford.json';
+  $http.get(url)
+  .then(function(data) {
+    console.log(data);
+    $scope.day = data.data.forecast.simpleforecast.forecastday[0].date.weekday;
+    $scope.temp = data.data.forecast.simpleforecast.forecastday[0].high.fahrenheit;
+    $scope.condition = data.data.forecast.simpleforecast.forecastday[0].conditions;
+    $scope.grade = 'B+';
+    console.log($scope.day);
+  });
+}])
+
+app.controller('HistoryCtrl', ['$scope', function($scope) {
+  console.log('History Controller loaded!');
+}])
+
+app.controller('FavoriteCtrl', ['$scope', function($scope) {
+  console.log('Favorite Controller loaded');
 }])
