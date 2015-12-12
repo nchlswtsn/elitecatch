@@ -31,4 +31,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: './public/html/controlPanel.html',
       controller: 'ControlCtrl'
     })
+    .state('history', {
+      parent: 'return',
+      templateUrl: './public/html/history.html',
+      controller: 'HistoryCtrl'
+    })
+    .state('favorite', {
+      parent: 'return',
+      templateUrl: './public/html/favorite.html',
+      controller: 'FavoriteCtrl'
+    });
 });

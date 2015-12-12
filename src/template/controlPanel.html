@@ -1,9 +1,49 @@
 <div class="col-md-10 col-md-offset-1">
   <div class="row">
     <div ng-show="secondPhase" class="col-md-6 col-md-offset-3 controlPanel animated fadeIn">
-      <button ng-click="" class="btn btn-lg btn-default">Favorite Spots</button>
-      <button ng-click="" class="btn btn-lg btn-default">History</button>
+      <button data-toggle="modal" data-target="#favoriteModal" class="btn btn-lg btn-default">Favorite Spots</button>
+      <button data-toggle="modal" data-target="#historyModal" class="btn btn-lg btn-default">History</button>
       <button ng-click="searchBar()" class="btn btn-lg btn-default">New Search</button>
+    </div>
+  </div>
+</div>
+
+<!-- FAVORITE MODAL -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Favorite Spots</h4>
+      </div>
+      <div class="modal-body">
+        TEST FAVORITE
+        <div class="ui-view"></div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HISTORY MODAL -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">History of Searches</h4>
+      </div>
+      <div class="modal-body">
+        TEST HISTORY
+        <div class="ui-view"></div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
     </div>
   </div>
 </div>

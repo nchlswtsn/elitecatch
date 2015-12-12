@@ -31,6 +31,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: './public/html/controlPanel.html',
       controller: 'ControlCtrl'
     })
+    .state('history', {
+      parent: 'return',
+      templateUrl: './public/html/history.html',
+      controller: 'HistoryCtrl'
+    })
+    .state('favorite', {
+      parent: 'return',
+      templateUrl: './public/html/favorite.html',
+      controller: 'FavoriteCtrl'
+    });
 });
 
 'use strict';
@@ -279,6 +289,14 @@ app.controller('ControlCtrl', ['$scope', '$state', '$timeout', function($scope, 
   $scope.searchBar = function() {
     $state.go('finder');
   }
+  $scope.history = function() {
+    $state.go('history');
+  }
+  $scope.favorite = function() {
+    $state.go('favorite');
+  }
+
+
 }])
 app.controller('FinderCtrl', ['$scope', '$state', '$timeout', function($scope, $state, $timeout) {
   $scope.thirdPhase = false;

@@ -244,6 +244,14 @@ app.controller('ControlCtrl', ['$scope', '$state', '$timeout', function($scope, 
   $scope.searchBar = function() {
     $state.go('finder');
   }
+  $scope.history = function() {
+    $state.go('history');
+  }
+  $scope.favorite = function() {
+    $state.go('favorite');
+  }
+
+
 }])
 app.controller('FinderCtrl', ['$scope', '$state', '$timeout', function($scope, $state, $timeout) {
   $scope.thirdPhase = false;
