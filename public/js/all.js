@@ -35,6 +35,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 'use strict';
 
+app.service('radarService', function($http) {
+  var autoIP = 'http://api.wunderground.com/api/dec8bf3b3a454036/geolookup/q/autoip.json';
+  this.getIP = function(){return $http.get(autoIP)}
+})
+
+'use strict';
+
 app.controller('InitCtrl', ['$scope', '$timeout', '$state', function($scope, $timeout, $state) {
 
 }])
@@ -156,7 +163,7 @@ app.controller('ReturnCtrl', ['$scope', '$http', '$timeout', '$state', function(
   // $scope.showThirdPhase = function() {
   //   $scope.thirdPhase = true;
   // }
-  $timeout($scope.showFirstPhase, 2000);
+  $timeout($scope.showFirstPhase, 1000);
   // $timeout($scope.showThirdPhase, 2000);
 
   // var waypoint = new Waypoint({
@@ -248,7 +255,7 @@ app.controller('ControlCtrl', ['$scope', '$state', '$timeout', function($scope, 
   $scope.showSecondPhase = function() {
     $scope.secondPhase = true;
   }
-  $timeout($scope.showSecondPhase, 3000);
+  $timeout($scope.showSecondPhase, 2000);
 
   $scope.searchBar = function() {
     $state.go('finder');
@@ -278,10 +285,3 @@ app.controller('FavoriteCtrl', ['$scope', function($scope) {
 app.controller('NavionicsCtrl', ['$scope', '$http', function($scope, $http) {
   console.log('NAVIONICS WORKS!!!');
 }])
-
-'use strict';
-
-app.service('radarService', function($http) {
-  var autoIP = 'http://api.wunderground.com/api/dec8bf3b3a454036/geolookup/q/autoip.json';
-  this.getIP = function(){return $http.get(autoIP)}
-})
