@@ -6,7 +6,8 @@
   background-image: url("../images/fish01.jpg");
   background-size: cover;
   height: 75vh;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  border-bottom: 5px solid #ededed; }
   .hero-unit.welcome #right {
     position: absolute;
     right: 30vw;
@@ -73,21 +74,55 @@
     cursor: pointer; }
 
 .hero-unit.return {
-  position: relative;
+  position: fixed;
   top: 0;
   background-image: url("./../images/fishing2.jpeg");
   background-size: cover;
-  height: 110vh;
+  height: 100vh;
+  width: 100vw;
+  repeat: none;
   margin-bottom: 20px; }
   .hero-unit.return #returnState {
     text-align: center;
     font-size: 5em; }
+
+.borderlessCol {
+  height: 100%;
+  padding: 0; }
 
 tr th {
   text-align: center; }
 
 tr td {
   text-align: center; }
+
+i {
+  cursor: pointer; }
+  i :active {
+    background-color: #d5d5d5; }
+
+.grayPanel {
+  background-color: #ededed;
+  height: 100vh; }
+
+.expandTable {
+  width: 100%;
+  height: 40px;
+  font-size: 1em;
+  font-weight: bold; }
+
+.expandRadar {
+  width: 200px; }
+
+.expandedInfo {
+  margin-top: 50px; }
+
+.technique {
+  margin-top: 10px;
+  font-size: 1.5em; }
+
+.recommendation {
+  margin-top: 20px; }
 
 body {
   font-family: Avenir; }

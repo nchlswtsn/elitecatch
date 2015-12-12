@@ -6,3 +6,32 @@ tr {
     text-align: center;
   }
 }
+i{
+  cursor: pointer;
+  :active {
+    background-color: rgb(213, 213, 213);
+  }
+}
+.grayPanel {
+  background-color: $background-gray;
+  height: 100vh;
+}
+.expandTable {
+  width: 100%;
+  height: 40px;
+  font-size: 1em;
+  font-weight: bold;
+}
+.expandRadar {
+  width: 200px;
+}
+.expandedInfo {
+  margin-top: 50px;
+}
+.technique {
+  margin-top: 10px;
+  font-size: 1.5em;
+}
+.recommendation {
+  margin-top: 20px;
+}

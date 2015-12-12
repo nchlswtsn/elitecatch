@@ -29,7 +29,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
     .state('control', {
       parent: 'return',
-      url: 'control-panel',
+      url: '/return',
       templateUrl: './public/html/controlPanel.html',
       controller: 'ControlCtrl'
     })
