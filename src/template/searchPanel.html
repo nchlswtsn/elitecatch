@@ -1,10 +1,12 @@
 <div class="col-md-4 col-md-offset-4">
   <div class="searchBar">
-    <div class="input-group">
-      <input type="text" class="form-control finderBar" placeholder="City, State..." autofocus>
-      <span class="input-group-btn">
-        <button ng-click="searchData()" class="btn btn-default" type="button">Go!</button>
-      </span>
+    <form ng-submit="searchData()">
+      <div ng-show="thirdPhase" class="input-group animated fadeIn">
+        <input type="text" class="form-control finderBar" placeholder="City, State..." autofocus>
+        <span class="input-group-btn">
+          <button ng-click="searchData()" class="btn btn-default" type="button">Go!</button>
+        </span>
+      </form>
     </div>
   </div>
 </div>

@@ -142,18 +142,18 @@ app.controller('ReturnCtrl', ['$scope', '$http', '$timeout', '$state', function(
 
   // Start Home Load Animation
   $scope.firstPhase = false;
-  $scope.thirdPhase = false;
+  // $scope.thirdPhase = false;
 
   $scope.fullName = JSON.parse(localStorage.fullName);
 
   $scope.showFirstPhase = function() {
     $scope.firstPhase = true;
   }
-  $scope.showThirdPhase = function() {
-    $scope.thirdPhase = true;
-  }
-  $timeout($scope.showFirstPhase, 1000);
-  $timeout($scope.showThirdPhase, 3000);
+  // $scope.showThirdPhase = function() {
+  //   $scope.thirdPhase = true;
+  // }
+  $timeout($scope.showFirstPhase, 2000);
+  // $timeout($scope.showThirdPhase, 2000);
 
   // var waypoint = new Waypoint({
   //   element: document.getElementById('radarImg'),
@@ -183,8 +183,8 @@ app.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
   var pressure;
 
 
-  var forecastUrl = 'http://api.wunderground.com/api/dec8bf3b3a454036/forecast10day/q/OH/Oxford.json';
-  var pressureUrl = 'http://api.wunderground.com/api/dec8bf3b3a454036/conditions/q/OH/Oxford.json';
+  var forecastUrl = 'http://api.wunderground.com/api/dec8bf3b3a454036/forecast10day/q/CA/Fremont.json';
+  var pressureUrl = 'http://api.wunderground.com/api/dec8bf3b3a454036/conditions/q/CA/Fremont.json';
   $http.get(forecastUrl)
   .then(function(data) {
     $scope.day = data.data.forecast.simpleforecast.forecastday[0].date.weekday;
@@ -238,13 +238,25 @@ app.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
   })
 }])
 
-app.controller('ControlCtrl', ['$scope', '$state', function($scope, $state) {
+app.controller('ControlCtrl', ['$scope', '$state', '$timeout', function($scope, $state, $timeout) {
   console.log('Control Controller loaded!');
+  $scope.secondPhase = false;
+  $scope.showSecondPhase = function() {
+    $scope.secondPhase = true;
+  }
+  $timeout($scope.showSecondPhase, 3000);
+
   $scope.searchBar = function() {
     $state.go('finder');
   }
 }])
-app.controller('FinderCtrl', ['$scope', '$state', function($scope, $state) {
+app.controller('FinderCtrl', ['$scope', '$state', '$timeout', function($scope, $state, $timeout) {
+  $scope.thirdPhase = false;
+  $scope.showThirdPhase = function() {
+    $scope.thirdPhase = true;
+  }
+  $timeout($scope.showThirdPhase, 300);
+
   console.log('SEARCH CONTROLLER');
   $scope.searchData = function() {
     $state.go('search')

@@ -130,9 +130,15 @@ i {
   .controlPanel .btn {
     background-color: RGBA(254, 254, 254, 0.15); }
 
-.finderBar {
-  color: black;
-  background-color: RGBA(254, 254, 254, 0.15); }
+.searchBar {
+  margin-top: 40px; }
+  .searchBar .finderBar {
+    background-color: RGBA(254, 254, 254, 0.15);
+    color: black; }
+  .searchBar ::-webkit-input-placeholder {
+    color: black; }
+  .searchBar button {
+    background-color: RGBA(254, 254, 254, 0.15); }
 
 body {
   font-family: Avenir; }
