@@ -23,13 +23,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
     })
     .state('finder', {
       parent: 'return',
-      url: '/finder',
       templateUrl: './public/html/searchPanel.html',
       controller: 'FinderCtrl'
     })
     .state('control', {
       parent: 'return',
-      url: '/return',
       templateUrl: './public/html/controlPanel.html',
       controller: 'ControlCtrl'
     })

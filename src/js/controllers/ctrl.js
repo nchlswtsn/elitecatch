@@ -94,9 +94,9 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', '$
 //
 // }]);
 app.controller('ReturnCtrl', ['$scope', '$http', '$timeout', '$state', function($scope, $http, $timeout, $state) {
+  $state.go('control')
 
   $scope.firstVisit = JSON.parse(localStorage.firstVisit);
-
   // Check if first visit
   if (!localStorage.visited) {
     $state.go('welcome');
@@ -201,6 +201,19 @@ app.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
     // 950 mb (28.06 inches of mercury): CAT 3 Hurricane
     // 870 mb (25.70 inches of mercury): Lowest Ever Recorded (not including tornadoes)
   })
+}])
+
+app.controller('ControlCtrl', ['$scope', '$state', function($scope, $state) {
+  console.log('Control Controller loaded!');
+  $scope.searchBar = function() {
+    $state.go('finder');
+  }
+}])
+app.controller('FinderCtrl', ['$scope', '$state', function($scope, $state) {
+  console.log('SEARCH CONTROLLER');
+  $scope.searchData = function() {
+    $state.go('search')
+  }
 }])
 
 app.controller('HistoryCtrl', ['$scope', function($scope) {

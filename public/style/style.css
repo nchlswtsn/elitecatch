@@ -124,5 +124,15 @@ i {
 .recommendation {
   margin-top: 20px; }
 
+.controlPanel {
+  margin-top: 20px;
+  text-align: center; }
+  .controlPanel .btn {
+    background-color: RGBA(254, 254, 254, 0.15); }
+
+.finderBar {
+  color: black;
+  background-color: RGBA(254, 254, 254, 0.15); }
+
 body {
   font-family: Avenir; }
