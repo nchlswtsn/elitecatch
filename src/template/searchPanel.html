@@ -1,16 +1,22 @@
 <div class="col-md-4 col-md-offset-4">
   <div class="searchBar">
-    <form>
+    <form ng-submit="searchData()">
       <div ng-show="thirdPhase" class="input-group animated fadeIn">
         <!-- <i class="fa fa-times pull-left"></i> -->
-        <input type="text" class="form-control finderBar" placeholder="City, State..." autofocus>
+        <input type="text" ng-model="searchLocation" class="form-control finderBar" placeholder="City, State..." autofocus>
         <span class="input-group-btn">
-          <button ng-submit="searchModal()" data-toggle="modal" data-target="#searchModal" class="btn btn-default" type="button">Go!</button>
+          <button ng-click="searchData()" class="btn btn-default" type="button">Go!</button>
         </span>
       </div>
     </form>
   </div>
 </div>
+
+
+
+
+<!-- data-toggle="modal" data-target="#searchModal"
+
 
 <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
@@ -64,4 +70,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->

@@ -1,14 +1,14 @@
 .searchBar {
   margin-top: 40px;
   .finderBar {
-    background-color: RGBA(254, 254, 254, .15);
+    background-color: $transparent-gray;
     color: black;
   }
   ::-webkit-input-placeholder {
     color: black;
   }
   button {
-    background-color: RGBA(254, 254, 254, .15);
+    background-color: $transparent-gray;
   }
   i {
     margin-top: 9px;

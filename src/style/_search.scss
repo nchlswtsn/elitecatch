@@ -13,8 +13,9 @@ i{
   }
 }
 .grayPanel {
-  background-color: $background-gray;
+  background-color: $transparent-gray;
   height: 100vh;
+  margin-bottom: 50px;
 }
 .expandTable {
   width: 100%;
