@@ -35,13 +35,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 'use strict';
 
-app.service('radarService', function($http) {
-  var autoIP = 'http://api.wunderground.com/api/dec8bf3b3a454036/geolookup/q/autoip.json';
-  this.getIP = function(){return $http.get(autoIP)}
-})
-
-'use strict';
-
 app.controller('InitCtrl', ['$scope', '$timeout', '$state', function($scope, $timeout, $state) {
 
 }])
@@ -71,13 +64,39 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', '$
   $timeout($scope.showSecondPhase, 3000);
   $timeout($scope.showThirdPhase, 4000);
 
-  // var waypoint = new Waypoint({
-  //   element: document.getElementById('radarImg'),
-  //   handler: function(direction) {
-  //     console.log('Radar hit:', direction);
-  //   },
-  //   offset: '80%'
-  // })
+
+  // RADAR TRIGGER
+  $scope.radarImage = false;
+
+  var waypoint = new Waypoint({
+    element: document.getElementById('radarImageTrigger'),
+    handler: function(direction) {
+      console.log('Radar hit:', direction);
+      if (direction === 'down') {
+        $scope.radarImage = true;
+        console.log($scope.radarImage);
+        $scope.$apply()
+      }
+    },
+    offset: '80%'
+  })
+
+  // DEPTH TRIGGER
+  $scope.depthImage = false;
+
+  var waypoint = new Waypoint({
+    element: document.getElementById('depthImageTrigger'),
+    handler: function(direction) {
+      console.log('Radar hit:', direction);
+      if (direction === 'down') {
+        $scope.depthImage = true;
+        console.log($scope.depthImage);
+        $scope.$apply()
+      }
+    },
+    offset: '80%'
+  })
+
   // End Home Load Animation
   var defaultName = "Guest";
   var defaultLocation = "Fremont, CA"
@@ -105,11 +124,11 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', '$
 
 
   // var geoCityState = data.data.location.state + '/' + data.data.location.city;
-  function logTest(data) {
-    console.log(data);
-  }
-  var url = 'http://api.wunderground.com/api/dec8bf3b3a454036/animatedradar/q/OH/Oxford.gif?newmaps=1&timelabel=1&timelabel.y=10&num=5&delay=50?callback=logTest';
-  $http.get(url)
+  // function logTest(data) {
+  //   console.log(data);
+  // }
+  // var url = 'http://api.wunderground.com/api/dec8bf3b3a454036/animatedradar/q/OH/Oxford.gif?newmaps=1&timelabel=1&timelabel.y=10&num=5&delay=50?callback=logTest';
+  // $http.get(url)
 
 
   // .then(function(data) {
@@ -285,3 +304,10 @@ app.controller('FavoriteCtrl', ['$scope', function($scope) {
 app.controller('NavionicsCtrl', ['$scope', '$http', function($scope, $http) {
   console.log('NAVIONICS WORKS!!!');
 }])
+
+'use strict';
+
+app.service('radarService', function($http) {
+  var autoIP = 'http://api.wunderground.com/api/dec8bf3b3a454036/geolookup/q/autoip.json';
+  this.getIP = function(){return $http.get(autoIP)}
+})

@@ -21,11 +21,11 @@
         </div>
       </div>
     </div>
-    <div class="radarInfo">
+    <div class="radarInfo" id="radarImageTrigger">
       <div class="col-md-10 col-md-offset-1">
         <div class="row">
           <div class="col-md-6">
-            <img id="radarImg" class="animated " src="./public/images/radar.gif" alt="Radar">
+            <img ng-show="radarImage" id="radarImg" class="animated fadeInLeft" src="./public/images/radar.gif" alt="Radar">
           </div>
           <div class="col-md-6">
             <div id="radarDescription" class="pull-right">
@@ -37,7 +37,7 @@
         </div>
       </div>
     </div>
-    <div class="depthInfo">
+    <div class="depthInfo" id="depthImageTrigger">
       <div class="col-md-10 col-md-offset-1">
         <div class="row">
           <div class="col-md-6">
@@ -50,7 +50,7 @@
             </div>
           </div>
           <div class="col-md-6">
-            <img src="./public/images/thermocline.jpg" alt="Thermocline">
+            <img ng-show="depthImage" class="animated fadeInRight" src="./public/images/thermocline.jpg" alt="Thermocline">
           </div>
         </div>
       </div>
