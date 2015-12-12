@@ -77,21 +77,19 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', '$
     localStorage.fullName = JSON.stringify($scope.fullName)
     localStorage.homeLocation = JSON.stringify($scope.homeLocation)
     localStorage.memberSince = JSON.stringify(Date.now())
-    console.log(localStorage);
     $scope.fullName = '';
     $scope.homeLocation = '';
-    localStorage.visited = JSON.stringify(1);
+    localStorage.visited = JSON.stringify(true);
     localStorage.firstVisit = JSON.stringify(true);
     $state.go('return');
   }
   $scope.saveInfoGuest = function() {
     localStorage.fullName = 'Guest';
-    localStorage.homeLocation = JSON.stringify($scope.homeLocation)
+    localStorage.homeLocation = 'Fremont, CA'
     localStorage.memberSince = JSON.stringify(Date.now())
-    console.log(localStorage);
     $scope.fullName = '';
     $scope.homeLocation = '';
-    localStorage.visited = JSON.stringify(1);
+    localStorage.visited = JSON.stringify(true);
     localStorage.firstVisit = JSON.stringify(true);
     $state.go('return');
   }
