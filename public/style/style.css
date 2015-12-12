@@ -74,7 +74,6 @@
     cursor: pointer; }
 
 .hero-unit.return {
-  position: fixed;
   top: 0;
   background-image: url("../images/fish2.jpg");
   background-size: cover;
@@ -139,6 +138,8 @@ i {
     color: black; }
   .searchBar button {
     background-color: RGBA(254, 254, 254, 0.15); }
+  .searchBar i {
+    margin-top: 9px; }
 
 body {
   font-family: Avenir; }

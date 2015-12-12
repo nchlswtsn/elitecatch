@@ -1,13 +1,14 @@
 <div class="col-md-4 col-md-offset-4">
   <div class="searchBar">
-    <!-- <form ng-submit="searchData()"> -->
+    <form>
       <div ng-show="thirdPhase" class="input-group animated fadeIn">
+        <!-- <i class="fa fa-times pull-left"></i> -->
         <input type="text" class="form-control finderBar" placeholder="City, State..." autofocus>
         <span class="input-group-btn">
-          <button data-toggle="modal" data-target="#searchModal" class="btn btn-default" type="button">Go!</button>
+          <button ng-submit="searchModal()" data-toggle="modal" data-target="#searchModal" class="btn btn-default" type="button">Go!</button>
         </span>
-      <!-- </form> -->
-    </div>
+      </div>
+    </form>
   </div>
 </div>
 
@@ -19,7 +20,44 @@
         <h4 class="modal-title" id="myModalLabel">Search Results</h4>
       </div>
       <div class="modal-body">
-        TEST SEARCH MODAL
+
+        <table class="table table-striped table-hover ">
+          <thead>
+            <tr>
+              <th>Expand</th>
+              <th>Day</th>
+              <th>Temp</th>
+              <th>Pressure</th>
+              <th>Condition</th>
+              <th>Grade</th>
+              <th>Save</th>
+            </tr>
+          </thead>
+          <div>
+            <tr>
+              <td><i ng-click="expand()" class="fa fa-plus-square" data-toggle="tooltip" data-placement="bottom" title="Click to display more info."></i></td>
+              <td>{{day}}</td>
+              <td>{{temp}}˚f</td>
+              <td>{{pressure}}mb</td>
+              <td>{{condition}}</td>
+              <td>{{grade}}</td>
+              <td><i class="fa fa-check-square" data-toggle="tooltip" data-placement="bottom" title="Click to save to favorites."></i></td>
+            </tr>
+            <tr><td class="expandTable" colspan='7' ng-show="displayMore">
+              <div class="col-md-6"><img class="expandRadar" src="./../public/images/radar.gif" alt="Radar"/></div>
+              <div class="col-md-6">
+                <div class="row recommendation">Recommended Technique:</div>
+                <div class="row technique">{{technique}}</div>
+                <div class="row expandedInfo">
+                  <form action="http://learninghowtofish.com/fishing-weather/" target="_blank">
+                    <button>Learn how weather affects fishing!</button>
+                  </form>
+                </div>
+              </div>
+            </td></tr>
+          </div>
+        </table>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
