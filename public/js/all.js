@@ -72,6 +72,8 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', '$
   //   offset: '80%'
   // })
   // End Home Load Animation
+  var defaultName = "Guest";
+  var defaultLocation = "Fremont, CA"
 
   $scope.saveInfo = function() {
     localStorage.fullName = JSON.stringify($scope.fullName)
@@ -84,8 +86,8 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', '$
     $state.go('return');
   }
   $scope.saveInfoGuest = function() {
-    localStorage.fullName = 'Guest';
-    localStorage.homeLocation = 'Fremont, CA'
+    localStorage.fullName = JSON.stringify(defaultName);
+    localStorage.homeLocation = JSON.stringify(defaultLocation);
     localStorage.memberSince = JSON.stringify(Date.now())
     $scope.fullName = '';
     $scope.homeLocation = '';
@@ -96,9 +98,13 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', '$
 
 
   // var geoCityState = data.data.location.state + '/' + data.data.location.city;
-  // var url = 'http://api.wunderground.com/api/dec8bf3b3a454036/animatedradar/q/OH/Oxford.gif?newmaps=1&timelabel=1&timelabel.y=10&num=5&delay=50';
-  // console.log(url);
-  // $http.get(url)
+  function logTest(data) {
+    console.log(data);
+  }
+  var url = 'http://api.wunderground.com/api/dec8bf3b3a454036/animatedradar/q/OH/Oxford.gif?newmaps=1&timelabel=1&timelabel.y=10&num=5&delay=50?callback=logTest';
+  $http.get(url)
+
+
   // .then(function(data) {
   //   console.log(data);
   // })
@@ -267,6 +273,10 @@ app.controller('HistoryCtrl', ['$scope', function($scope) {
 
 app.controller('FavoriteCtrl', ['$scope', function($scope) {
   console.log('Favorite Controller loaded');
+}])
+
+app.controller('NavionicsCtrl', ['$scope', '$http', function($scope, $http) {
+  console.log('NAVIONICS WORKS!!!');
 }])
 
 'use strict';
