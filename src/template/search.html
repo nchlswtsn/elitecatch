@@ -21,7 +21,7 @@
             <td>{{pressure}}mb</td>
             <td>{{condition}}</td>
             <td>{{grade}}</td>
-            <td><i class="fa fa-check-square" data-toggle="tooltip" data-placement="bottom" title="Click to save to favorites."></i></td>
+            <td><i ng-click="saveSpot()" class="fa fa-check-square" data-toggle="tooltip" data-placement="bottom" title="Click to save to favorites."></i></td>
           </tr>
           <tr><td class="expandTable" colspan='7' ng-show="displayMore">
             <div class="col-md-6"><img class="expandRadar" src="./../public/images/radar.gif" alt="Radar"/></div>

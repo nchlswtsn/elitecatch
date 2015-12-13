@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('InitCtrl', ['$scope', '$timeout', '$state', function($scope, $timeout, $state) {
-
+  mixpanel.track('Home Page Visited')
 }])
 
 
@@ -75,6 +75,7 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', '$
   var defaultLocation = "Fremont, CA"
 
   $scope.saveInfo = function() {
+    mixpanel.track('User Joined');
     localStorage.fullName = JSON.stringify($scope.fullName)
     localStorage.homeLocation = JSON.stringify($scope.homeLocation)
     localStorage.memberSince = JSON.stringify(Date.now())
@@ -85,6 +86,7 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', '$
     $state.go('return');
   }
   $scope.saveInfoGuest = function() {
+    mixpanel.track('Tried by Guest');
     localStorage.fullName = JSON.stringify(defaultName);
     localStorage.homeLocation = JSON.stringify(defaultLocation);
     localStorage.memberSince = JSON.stringify(Date.now())
@@ -214,7 +216,7 @@ app.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.day = data.data.forecast.simpleforecast.forecastday[0].date.weekday;
     $scope.temp = data.data.forecast.simpleforecast.forecastday[0].high.fahrenheit;
     $scope.condition = data.data.forecast.simpleforecast.forecastday[0].conditions;
-    $scope.grade = ['A+', 'A', 'A-', 'B+', 'B'][Math.floor(Math.random() * 5)]
+    $scope.grade = ['A-', 'B+', 'B'][Math.floor(Math.random() * 3)]
   });
   $http.get(pressureUrl)
   .then(function(data) {
@@ -232,16 +234,16 @@ app.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
       $scope.pressure = "Low: " + pressureNumber;
     }
     else if (pressureNumber > 980) {
-      $scope.pressure = "Semi-dangerously low: " + pressureNumber;
+      $scope.pressure = "Very low: " + pressureNumber;
     }
     else if (pressureNumber > 950) {
-      $scope.pressure = "DANGER! Very low: " + pressureNumber;
+      $scope.pressure = "Severely low: " + pressureNumber;
     }
     else if (pressureNumber > 870) {
-      $scope.pressure = "EXTREME DANGER! Record low: " + pressureNumber;
+      $scope.pressure = "EXTREME DANGER!" + pressureNumber;
     }
     else if (pressureNumber < 870) {
-      $scope.pressure = "Stay inside, Tornado warning! " + pressureNumber;
+      $scope.pressure = "Tornado warning! " + pressureNumber;
     }
 
     $scope.displayMore = false;
@@ -260,6 +262,12 @@ app.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
     // 950 mb (28.06 inches of mercury): CAT 3 Hurricane
     // 870 mb (25.70 inches of mercury): Lowest Ever Recorded (not including tornadoes)
   })
+
+  $scope.saveSpot = function() {
+    mixpanel.track('Location Saved');
+
+
+  }
 }])
 
 
@@ -311,6 +319,7 @@ app.controller('FinderCtrl', ['$scope', '$state', '$timeout', function($scope, $
   console.log('SEARCH CONTROLLER');
 
   $scope.searchData = function() {
+    mixpanel.track('Location searched');
     console.log('FINDER?');
     $state.go('search')
   }

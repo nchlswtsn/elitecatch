@@ -101,7 +101,7 @@ i {
     background-color: #d5d5d5; }
 
 .grayPanel {
-  background-color: RGBA(254, 254, 254, 0.15);
+  background-color: RGBA(254, 254, 254, 0.5);
   height: 100vh;
   margin-bottom: 50px; }
 
