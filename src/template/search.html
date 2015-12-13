@@ -23,18 +23,20 @@
             <td>{{grade}}</td>
             <td><i ng-click="saveSpot()" class="fa fa-check-square" data-toggle="tooltip" data-placement="bottom" title="Click to save to favorites."></i></td>
           </tr>
-          <tr><td class="expandTable" colspan='7' ng-show="displayMore">
-            <div class="col-md-6"><img class="expandRadar" src="./../public/images/radar.gif" alt="Radar"/></div>
-            <div class="col-md-6">
-              <div class="row recommendation">Recommended Technique:</div>
-              <div class="row technique">{{technique}}</div>
-              <div class="row expandedInfo">
-                <form action="http://learninghowtofish.com/fishing-weather/" target="_blank">
-                  <button>Learn how weather affects fishing!</button>
-                </form>
+          <tr>
+            <td class="expandTable" colspan='7' ng-show="displayMore">
+              <div class="col-md-6"><img class="expandRadar" src="./../public/images/radar.gif" alt="Radar"/></div>
+              <div class="col-md-6">
+                <div class="row recommendation">Recommended Technique:</div>
+                <div class="row technique">{{technique}}</div>
+                <div class="row expandedInfo">
+                  <form action="http://learninghowtofish.com/fishing-weather/" target="_blank">
+                    <button>Learn how weather affects fishing!</button>
+                  </form>
+                </div>
               </div>
-            </div>
-          </td></tr>
+            </td>
+          </tr>
         </div>
       </table>
     </div>

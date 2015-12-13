@@ -74,6 +74,7 @@
     cursor: pointer; }
 
 .hero-unit.return {
+  position: fixed;
   top: 0;
   background-image: url("../images/fish2.jpg");
   background-size: cover;

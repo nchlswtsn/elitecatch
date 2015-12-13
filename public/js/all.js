@@ -263,9 +263,10 @@ app.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
   var pressureUrl = 'http://api.wunderground.com/api/dec8bf3b3a454036/conditions/q/CA/Fremont.json';
   $http.get(forecastUrl)
   .then(function(data) {
-    $scope.day = data.data.forecast.simpleforecast.forecastday[0].date.weekday;
-    $scope.temp = data.data.forecast.simpleforecast.forecastday[0].high.fahrenheit;
-    $scope.condition = data.data.forecast.simpleforecast.forecastday[0].conditions;
+    var data = data.data.forecast.simpleforecast.forecastday;
+    $scope.day = data[0].date.weekday;
+    $scope.temp = data[0].high.fahrenheit;
+    $scope.condition = data[0].conditions;
     $scope.grade = ['A-', 'B+', 'B'][Math.floor(Math.random() * 3)]
   });
   $http.get(pressureUrl)
@@ -340,10 +341,10 @@ app.controller('ControlCtrl', ['$scope', '$state', '$timeout', function($scope, 
   $scope.searchBar = function() {
     $state.go('finder');
   }
-  $scope.history = function() {
+  $scope.viewHistory = function() {
     $state.go('history');
   }
-  $scope.favorite = function() {
+  $scope.viewFavorites = function() {
     $state.go('favorite');
   }
 
