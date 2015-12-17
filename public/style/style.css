@@ -102,9 +102,7 @@ i {
     background-color: #d5d5d5; }
 
 .grayPanel {
-  background-color: RGBA(254, 254, 254, 0.5);
-  height: 100vh;
-  margin-bottom: 50px; }
+  background-color: RGBA(254, 254, 254, 0.5); }
 
 .expandTable {
   width: 100%;
@@ -145,3 +143,12 @@ i {
 
 body {
   font-family: Avenir; }
+
+.returnBar {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px; }
+  .returnBar button {
+    background-color: RGBA(254, 254, 254, 0.15); }
+    .returnBar button i {
+      color: white; }

@@ -13,13 +13,13 @@
             <th>Save</th>
           </tr>
         </thead>
-        <div>
-          <tr>
+        <div >
+          <tr ng-repeat="data in forecastData">
             <td><i ng-click="expand()" class="fa fa-plus-square" data-toggle="tooltip" data-placement="bottom" title="Click to display more info."></i></td>
-            <td>{{day}}</td>
-            <td>{{temp}}˚f</td>
+            <td>{{data.date.weekday}}</td>
+            <td>{{data.high.fahrenheit}}˚f</td>
             <td>{{pressure}}mb</td>
-            <td>{{condition}}</td>
+            <td>{{data.conditions}}</td>
             <td>{{grade}}</td>
             <td><i ng-click="saveSpot()" class="fa fa-check-square" data-toggle="tooltip" data-placement="bottom" title="Click to save to favorites."></i></td>
           </tr>
@@ -40,5 +40,10 @@
         </div>
       </table>
     </div>
+  </div>
+  <div class="returnBar">
+    <button class="btn btn-default" ng-click="return()">
+      <i class="fa fa-undo"></i>
+    </button>
   </div>
 </div>

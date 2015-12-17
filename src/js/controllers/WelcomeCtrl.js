@@ -20,9 +20,9 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', '$
   $scope.showThirdPhase = function() {
     $scope.thirdPhase = true;
   }
-  $timeout($scope.showFirstPhase, 2000);
-  $timeout($scope.showSecondPhase, 3000);
-  $timeout($scope.showThirdPhase, 4000);
+  $timeout($scope.showFirstPhase, 1000);
+  $timeout($scope.showSecondPhase, 2000);
+  $timeout($scope.showThirdPhase, 3000);
 
 
   // RADAR TRIGGER

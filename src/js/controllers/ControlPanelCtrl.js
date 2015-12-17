@@ -7,12 +7,15 @@ app.controller('ControlCtrl', ['$scope', '$state', '$timeout', function($scope, 
   $timeout($scope.showSecondPhase, 2000);
 
   $scope.searchBar = function() {
+    $scope.secondPhase = false;
     $state.go('finder');
   }
   $scope.viewHistory = function() {
+    $scope.secondPhase = false;
     $state.go('history');
   }
   $scope.viewFavorites = function() {
+    $scope.secondPhase = false;
     $state.go('favorite');
   }
 

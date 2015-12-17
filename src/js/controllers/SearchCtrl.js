@@ -1,4 +1,4 @@
-app.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
+app.controller('SearchCtrl', ['$scope', '$http', '$state', function($scope, $http, $state) {
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
@@ -14,17 +14,26 @@ app.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
   $scope.grade;
   $scope.technique = ['Deep Water', 'Top Water', 'Trolling'][Math.floor(Math.random() * 3)]
   var pressure;
-
+  $scope.forecastData = [];
 
   var forecastUrl = 'http://api.wunderground.com/api/dec8bf3b3a454036/forecast10day/q/CA/Fremont.json';
   var pressureUrl = 'http://api.wunderground.com/api/dec8bf3b3a454036/conditions/q/CA/Fremont.json';
+  var openUrl = 'api.openweathermap.org/data/2.5/forecast/daily?q=Fremont&mode=json&units=imperial&cnt=10?APPID=99c2f58822d3d9b37eaaed986d390d29';
+  // var openUrl = 'api.openweathermap.org/data/2.5/forecast/daily?q=Fremont&mode=json&units=imperial&cnt=10?APPID=99c2f58822d3d9b37eaaed986d390d29';
+  $http.get(openUrl)
+    .success(function(data) {
+      console.log('OPEN:', data);
+    })
   $http.get(forecastUrl)
   .then(function(data) {
     var data = data.data.forecast.simpleforecast.forecastday;
     $scope.day = data[0].date.weekday;
     $scope.temp = data[0].high.fahrenheit;
     $scope.condition = data[0].conditions;
-    $scope.grade = ['A-', 'B+', 'B'][Math.floor(Math.random() * 3)]
+    $scope.grade = ['B'][0];
+    $scope.forecastData = data;
+    console.log($scope.forecastData);
+    console.log($scope.forecastData[0].date);
   });
   $http.get(pressureUrl)
   .then(function(data) {
@@ -61,6 +70,9 @@ app.controller('SearchCtrl', ['$scope', '$http', function($scope, $http) {
       $scope.displayMore = !$scope.displayMore;
     }
 
+    $scope.return = function() {
+      $state.go('control');
+    }
 
     // 1086 mb (32.08 inches of mercury): Highest Ever Recorded
     // 1030 mb (30.42 inches of mercury): Strong High Pressure System

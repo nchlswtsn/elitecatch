@@ -17,6 +17,7 @@ app.controller('ReturnCtrl', ['$scope', '$http', '$timeout', '$state', function(
   $scope.fullName = JSON.parse(localStorage.fullName);
 
   $scope.showFirstPhase = function() {
+    console.log("TIMEOUT?");
     $scope.firstPhase = true;
   }
   // $scope.showThirdPhase = function() {
