@@ -10,10 +10,10 @@
           </tr>
         </thead>
         <div>
-          <tr>
-            <td>{{day}}</td>
+          <tr ng-repeat="data in savedSpots">
+            <td>{{data.date}}</td>
             <td>{{location}}</td>
-            <td>{{grade}}</td>
+            <td>{{data.grade}}</td>
           </tr>
         </div>
       </table>

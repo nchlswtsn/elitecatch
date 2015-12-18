@@ -21,9 +21,9 @@ app.controller('SearchCtrl', ['$scope', '$http', '$state', function($scope, $htt
   var openUrl = 'api.openweathermap.org/data/2.5/forecast/daily?q=Fremont&mode=json&units=imperial&cnt=10?APPID=99c2f58822d3d9b37eaaed986d390d29';
   // var openUrl = 'api.openweathermap.org/data/2.5/forecast/daily?q=Fremont&mode=json&units=imperial&cnt=10?APPID=99c2f58822d3d9b37eaaed986d390d29';
   $http.get(openUrl)
-    .success(function(data) {
-      console.log('OPEN:', data);
-    })
+  .success(function(data) {
+    console.log('OPEN:', data);
+  })
   $http.get(forecastUrl)
   .then(function(data) {
     var data = data.data.forecast.simpleforecast.forecastday;
@@ -83,8 +83,22 @@ app.controller('SearchCtrl', ['$scope', '$http', '$state', function($scope, $htt
     // 870 mb (25.70 inches of mercury): Lowest Ever Recorded (not including tornadoes)
   })
 
+  $scope.savedSpots = [];
+
   $scope.saveSpot = function() {
+    var unixTime = new Date();
+    var date = unixTime.toUTCString();
+    console.log(date);
     mixpanel.track('Location Saved');
+    $scope.savedSpots.push({
+      date: date,
+      temp: $scope.temp,
+      pressure: $scope.pressure,
+      condition: $scope.condition,
+      grade: $scope.grade,
+      technique: $scope.technique
+    })
+    localStorage.savedSpots = JSON.stringify($scope.savedSpots);
 
 
   }
