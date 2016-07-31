@@ -45,6 +45,13 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   });
 });
 
+'use strict';
+
+app.service('radarService', function($http) {
+  var autoIP = 'http://api.wunderground.com/api/dec8bf3b3a454036/geolookup/q/autoip.json';
+  this.getIP = function(){return $http.get(autoIP)}
+})
+
 app.controller('ControlCtrl', ['$scope', '$state', '$timeout', function($scope, $state, $timeout) {
   console.log('Control Controller loaded!');
   $scope.secondPhase = false;
@@ -444,10 +451,3 @@ app.controller('WelcomeCtrl', ['$scope', '$timeout', '$http', 'radarService', '$
   //
   // })
 }]);
-
-'use strict';
-
-app.service('radarService', function($http) {
-  var autoIP = 'http://api.wunderground.com/api/dec8bf3b3a454036/geolookup/q/autoip.json';
-  this.getIP = function(){return $http.get(autoIP)}
-})
